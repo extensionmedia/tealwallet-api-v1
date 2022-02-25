@@ -21,13 +21,10 @@ class UserController extends Controller
 
         if(!$user || !Hash::check($fields['password'], $user->password)){
             //return response($response, 200);
-            return [
+            $return = [
                 'error'     =>  'Bad Credentials',
-                "status"    =>   400,
-                "message"   =>   "Invalid username or password",
-                "timestamp" =>   "2020-06-19T10:58:29.973+00:00",
-                "payload"   =>   null
             ];
+            return response($return, 400);
         }
 
         $token = $user->createToken('tealwallet-api-token')->plainTextToken;
