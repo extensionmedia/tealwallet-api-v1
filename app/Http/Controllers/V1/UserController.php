@@ -73,6 +73,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        return "list of users";
         return response([
             'users' =>  User::all()
         ],200);
