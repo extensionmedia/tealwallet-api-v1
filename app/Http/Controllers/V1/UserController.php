@@ -24,7 +24,7 @@ class UserController extends Controller
             $return = [
                 'error'     =>  'Bad Credentials',
             ];
-            return response($return, 400);
+            return response($return, 200);
         }
 
         $token = $user->createToken('tealwallet-api-token')->plainTextToken;
